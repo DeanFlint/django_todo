@@ -386,3 +386,37 @@ DATABASES = {
     }
 ```
 
+Now when you push to GitHub, this will update Heroku.
+
+Updated this below your imports in settings.py
+```
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else: 
+    development = False
+```
+
+Then update:
+```
+DEBUG = development
+```
+
+And update the default DATABASES:
+```
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+```
+
+Show Home in Favourites and in .bashrc, add the following at the bottom:
+```
+export DEVELOPMENT=1
+```
