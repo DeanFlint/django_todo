@@ -323,3 +323,35 @@ Add the following to the ```urlpatterns```:
 url(r'^edit/(?P<id>\d+)$', edit_an_item)
 ```
 ?P = Expression, d+ = digits
+
+HEROKU
+
+``` sudo pip3 install gunicorn ```
+
+``` sudo pip3 install psycopg2 ```
+
+``` pip3 freeze --local > requirements.txt ```
+
+``` heroku create simple-django-todo-df --region eu ``
+
+``` heroku addons:create heroku-postgresql:hobby-dev ```
+
+``` sudo pip3 install dj_database_url ```
+
+``` pip3 freeze --local > requirements.txt ```
+
+On settings.py:
+
+``` 
+DATABASES = {
+    'default': dj_database_url.parse("postgres://nthcnnczqjuody:4bfb366b7121369efc6739d308f00494a351e8d239ef7acc83bf6a0a374a632e@ec2-54-195-246-59.eu-west-1.compute.amazonaws.com:5432/d6mam7537n10ln")
+    }
+```
+
+Also, add:
+
+```
+import os
+import dj_database_url
+```
+
