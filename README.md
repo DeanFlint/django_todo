@@ -355,3 +355,34 @@ import os
 import dj_database_url
 ```
 
+Push to github
+``` git push origin master ```
+
+Push to heroku
+``` heroku config:set DISABLE_COLLECTSTATIC=1 ```
+
+``` git push heroku master ```
+
+Create a profile
+
+``` echo web: gunicorn django_todo.wsgi:application > Procfile ```
+
+Push Procfile to Github and Heroku.
+
+Change Deployment method to Github on Heroku.
+
+Amend ALLOWED_HOSTS on settings.py
+
+```
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
+                os.environ.get('HOSTNAME')]
+```
+
+Now amend DATABASES:
+
+```
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+```
+
