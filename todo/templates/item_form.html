@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible"
+		content="ie=edge">
+</head>
+<body>
+    <h1>I need to do this...</h1>
+    
+    <form method="POST">
+        {% csrf_token %} <!-- To prevent CRSF (which prevents anyone from injecting JS code into input elements) -->
+        
+        {{ form.as_p }} <!-- render form as <p></p> -->
+        
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
