@@ -420,3 +420,17 @@ Show Home in Favourites and in .bashrc, add the following at the bottom:
 ```
 export DEVELOPMENT=1
 ```
+
+Generate a new secret key from https://www.miniwebtool.com/django-secret-key-generator/
+
+Add the new secret key at the bottom of .bashrc:
+
+```
+export SECRET_KEY=" < Secret key > "
+```
+
+Generate a second secret key and on the cmd line, type the following:
+
+```
+heroku config:set SECRET_KEY="<SecretKey>"
+```
